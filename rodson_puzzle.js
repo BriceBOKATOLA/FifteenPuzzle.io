@@ -1,4 +1,4 @@
-var p=setup.puzzle_fifteen,freeslot=[],size=[],m=[],o,f=document.getElementById("fifteen");
+var p=setup.puzzle_rodson,freeslot=[],size=[],m=[],o,f=document.getElementById("rodson");
 ceation_slots();
 function ceation_slots(){
     size=[p.size[0]/(p.grid[0]+1),p.size[1]/(p.grid[1]+1)]
@@ -6,7 +6,7 @@ function ceation_slots(){
     f.style.width=p.size[0]+'px';
     f.style.height=p.size[1]+'px';
     f.style.position='relative';
-    if(p.fill){fifteen_resize();window.addEventListener('resize',fifteen_resize,true);}
+    if(p.fill){rodson_resize();window.addEventListener('resize',rodson_resize,true);}
     o=1;
     for(var y=0;y<=p.grid[1];y++){
         for(var x=0;x<=p.grid[0];x++){
@@ -82,7 +82,7 @@ function check_slots(){
         }
     }if(check==o){setTimeout(()=>{ alert('win') },((p.time)?p.time*1000:0));} // <-- alert('win') script qui s'exécute à la fin du jeu
 }
-function fifteen_resize(){
+function rodson_resize(){
     var rect=f.parentNode.getBoundingClientRect();
     if((p.size[0]/p.size[1])<(rect.width/rect.height)){f.style.transform='scale('+(rect.height/p.size[1])+')'}
     else{f.style.transform='scale('+(rect.width/p.size[0])+')'}
